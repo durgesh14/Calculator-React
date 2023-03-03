@@ -15,18 +15,29 @@ function App() {
         break;
       case "+/-":
         // setValue((parseFloat(value) * -1).toString());
-        setValue(
-          value.slice(0, value.length - 1) +
-            (parseFloat(value.charAt(value.length - 1)) * -1).toString()
-        );
-        console.log(
-          "+/-",
-          value.slice(0, value.length - 1) + value.charAt(value.length - 1)
-        );
+        let num = value.charAt(value.length - 2);
+        if (num === "-" || num === "+") {
+          setValue(
+            value.slice(0, value.length - 2) +
+              (parseFloat(value.substr(-2)) * -1).toString()
+          );
+        } else {
+          setValue(
+            value.slice(0, value.length - 1) +
+              (parseFloat(value.charAt(value.length - 1)) * -1).toString()
+          );
+        }
+
         break;
       case "%":
-        setValue((parseFloat(ans) / 100).toString());
-        setAns((parseFloat(ans) / 100).toString());
+        ans === ""
+          ? setValue(value)
+          : setValue((parseFloat(value) / 100).toString());
+        if (ans === "") {
+          setAns(ans);
+        } else {
+          setAns((parseFloat(ans) / 100).toString());
+        }
         break;
       case "+":
       case "-":
@@ -48,7 +59,7 @@ function App() {
         try {
           const evalResult = eval(value); // evaluates the expression entered in the calculator
           setAns(evalResult.toString()); // sets the answer in the ans state
-          // setValue(evalResult.toString()); // sets the value to the answer
+          setValue(evalResult.toString()); // sets the value to the answer
         } catch (error) {
           setAns("Error"); // sets the error message in the ans state if evaluation fails
           setValue("0"); // resets the value to 0
