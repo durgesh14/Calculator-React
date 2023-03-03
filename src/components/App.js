@@ -4,16 +4,17 @@ import "../App.css";
 import Buttons from "./Buttons";
 
 function App() {
-  const [value, setValue] = useState("0");
-  const [ans, setAns] = useState("");
+  const [value, setValue] = useState("0"); //state for value
+  const [ans, setAns] = useState(""); //state for ans
 
   function handleClick(data) {
+    // handling the buttons clicks
     switch (data) {
-      case "C":
+      case "C": // if C is clicked, value and ans are set to 0
         setValue("0");
         setAns("");
         break;
-      case "+/-":
+      case "+/-": // is +/- is clicked, changing sign of last digit
         // setValue((parseFloat(value) * -1).toString());
         let num = value.charAt(value.length - 2);
         if (num === "-" || num === "+") {
@@ -29,7 +30,7 @@ function App() {
         }
 
         break;
-      case "%":
+      case "%": // if % is clicked, diving value/ans by 100
         ans === ""
           ? setValue(value)
           : setValue((parseFloat(value) / 100).toString());
@@ -44,6 +45,7 @@ function App() {
       case "*":
       case "/":
         if (
+          //if +,-, *, / is clicked appending the data in value
           value.endsWith("+") ||
           value.endsWith("-") ||
           value.endsWith("*") ||
@@ -65,7 +67,13 @@ function App() {
           setValue("0"); // resets the value to 0
         }
         break;
-      default:
+      case ".":
+        if (!value.includes(".")) {
+          setValue(value + data);
+        }
+        break;
+
+      default: //default case
         if (value === "0" || value === "ERROR") {
           setValue(data);
           setAns("");
