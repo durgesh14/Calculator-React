@@ -14,10 +14,19 @@ function App() {
         setAns("");
         break;
       case "+/-":
-        setValue((parseFloat(value) * -1).toString());
+        // setValue((parseFloat(value) * -1).toString());
+        setValue(
+          value.slice(0, value.length - 1) +
+            (parseFloat(value.charAt(value.length - 1)) * -1).toString()
+        );
+        console.log(
+          "+/-",
+          value.slice(0, value.length - 1) + value.charAt(value.length - 1)
+        );
         break;
       case "%":
-        setValue((parseFloat(value) / 100).toString());
+        setValue((parseFloat(ans) / 100).toString());
+        setAns((parseFloat(ans) / 100).toString());
         break;
       case "+":
       case "-":
@@ -33,6 +42,7 @@ function App() {
         } else {
           setValue(value + data);
         }
+        // setAns(value);
         break;
       case "=":
         try {
@@ -45,10 +55,12 @@ function App() {
         }
         break;
       default:
-        if (value === "0" || value === "ERROR" || ans !== "") {
+        if (value === "0" || value === "ERROR") {
           setValue(data);
           setAns("");
         } else {
+          console.log("value: ", value);
+          console.log("data: ", data);
           setValue(value + data);
         }
         break;
