@@ -11,14 +11,13 @@ This is a simple calculator app designed to perform basic arithmetic operations 
     Equals
 ## Installation
 To get started, clone this repository:
-
-## Installation
+`https://github.com/durgesh14/Calculator-React.git`
 
 Install my-project with npm
 
 ```bash
-  npm install my-project
-  cd my-project
+    cd calculator-React-master
+    npm install
 ```
 ## Usage
 Open the index.html file in your preferred web browser.
