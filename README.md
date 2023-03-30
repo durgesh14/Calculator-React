@@ -1,3 +1,29 @@
+# Simple Calculator App
+This is a simple calculator app designed to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. It also includes a clear and equals button for ease of use. This calculator is inspired by the functionality of a normal calculator on your phone.
+![image](https://user-images.githubusercontent.com/34915741/228917525-1dd78781-c5ac-4a6a-9f1b-1ac0ad3906e7.png)
+
+## Features
+    Addition
+    Subtraction
+    Multiplication
+    Division
+    Clear
+    Equals
+## Installation
+To get started, clone this repository:
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install my-project
+  cd my-project
+```
+## Usage
+Open the index.html file in your preferred web browser.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
