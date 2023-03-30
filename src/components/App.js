@@ -67,7 +67,7 @@ function App() {
           setValue("0"); // resets the value to 0
         }
         break;
-      case ".":
+      case ".": //if . is clicked, the . is added to value only for the first time
         if (!value.includes(".")) {
           setValue(value + data);
         }
@@ -87,6 +87,7 @@ function App() {
   }
 
   return (
+    // returning div with Button component
     <div className={"main-container"}>
       <div className={"calculator-container"}>
         <div className={"calculator-screen"}>
@@ -97,6 +98,7 @@ function App() {
         <div className={"calculator-body"}>
           <div className={"calculator-btns"}>
             <div className={"calculator-row1"}>
+              {/* Passing button name, click handler and class name as props */}
               <Buttons
                 buttonName="C"
                 onBtnClick={() => handleClick("C")}
